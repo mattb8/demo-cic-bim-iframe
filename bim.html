@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
+		<script src="./script.js" type="module"></script>
+		<style>
+			#viewer {
+			  position: absolute;
+			  inset: 0;
+			}
+
+			#models {
+			  position: absolute;
+			  left: 1em;
+			  top: 1em;
+			  z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="viewer"></div>
+		<select id="models"></select>
+	</body>
+</html>
