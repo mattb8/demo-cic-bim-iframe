@@ -1,11 +1,15 @@
-const APP_URL = 'https://aps-codepen.autodesk.io';
+const APP_URL = 'https://proxy.cors.sh/https://aps-codepen.autodesk.io';
 
 /**
  * Generates access token for viewing models in the Model Derivative service.
  * @param {(string, number) => void} callback Function that will be called with generated access token and number of seconds before it expires.
  */
 function getAccessToken(callback) {
-    fetch(APP_URL + '/api/token')
+    fetch(APP_URL + '/api/token', {
+      headers: {
+      'x-cors-api-key': 'temp_60429a53323acae7d399317ce16edf9a'
+      }
+    })
         .then(resp => resp.ok ? resp.json() : Promise.reject(resp))
         .then(credentials => callback(credentials.access_token, credentials.expires_in))
         .catch(err => {
@@ -37,7 +41,11 @@ function initViewer(container, config) {
  * @returns {Promise<{ name: string, urn: string }>} List of models.
  */
 function listModels() {
-    return fetch(APP_URL + '/api/models')
+    return fetch(APP_URL + '/api/models', {
+      headers: {
+      'x-cors-api-key': 'temp_60429a53323acae7d399317ce16edf9a'
+      }
+    })
         .then(resp => resp.ok ? resp.json() : Promise.reject(resp));
 }
 
