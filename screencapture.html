@@ -3,16 +3,18 @@
 		<script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
 		<script src="./script.js" type="module"></script>
 		<script type="text/javascript">
-			document.querySelector('button').addEventListener('click', function() {
-			  const iframe = document.querySelector('#viewer');
-			  const screen = iframe.querySelector('canvas'); 
-			const base64image = screen.toDataURL('image/png').replace("image/jpeg", "image/octet-stream");
-			  
-			  const downloadLink = document.createElement("a");
-			     downloadLink.href = base64image;
-			     downloadLink.download = 'screencap.png';
-			     downloadLink.click();
-			});
+			window.addEventListener('load', function() {
+				document.querySelector('button').addEventListener('click', function() {
+				  const iframe = document.querySelector('#viewer');
+				  const screen = iframe.querySelector('canvas'); 
+				const base64image = screen.toDataURL('image/png').replace("image/jpeg", "image/octet-stream");
+				  
+				  const downloadLink = document.createElement("a");
+				     downloadLink.href = base64image;
+				     downloadLink.download = 'screencap.png';
+				     downloadLink.click();
+				});
+			}
 		</script>
 		<style>
 			#viewer {
