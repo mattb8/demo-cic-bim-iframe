@@ -3,7 +3,8 @@
 		<script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
 		<script src="./script.js" type="module"></script>
 		<script type="text/javascript">
-			window.addEventListener('load', function() {
+			window.onload = function() {
+console.log('loaded');
 				document.querySelector('button').addEventListener('click', function() {
 				  const iframe = document.querySelector('#viewer');
 				  const screen = iframe.querySelector('canvas'); 
@@ -14,7 +15,7 @@
 				     downloadLink.download = 'screencap.png';
 				     downloadLink.click();
 				});
-			})
+			}
 		</script>
 		<style>
 			#viewer {
