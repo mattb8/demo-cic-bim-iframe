@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
+		<script src="./script.js" type="module"></script>
+		<script type="text/javascript">
+			document.querySelector('button').addEventListener('click', function() {
+			  const iframe = document.querySelector('#viewer');
+			  const screen = iframe.querySelector('canvas'); 
+			const base64image = screen.toDataURL('image/png').replace("image/jpeg", "image/octet-stream");
+			  
+			  const downloadLink = document.createElement("a");
+			     downloadLink.href = base64image;
+			     downloadLink.download = 'screencap.png';
+			     downloadLink.click();
+			});
+		</script>
+		<style>
+			#viewer {
+			  inset: 0;
+			}
+
+			#models {
+			  left: 1em;
+			  top: 1em;
+			  z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" class="btn btn-default">Take a Screenshot!</button>
+		<div id="viewer"></div>
+		<select id="models"></select>
+	</body>
+</html>
