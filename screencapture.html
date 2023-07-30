@@ -4,7 +4,7 @@
 		<script src="./script.js" type="module"></script>
 		<script type="text/javascript">
 			window.onload = function() {
-console.log('loaded');
+console.log('loaded');	
 				document.querySelector('button').addEventListener('click', function() {
 				  const iframe = document.querySelector('#viewer');
 				  const screen = iframe.querySelector('canvas'); 
@@ -21,8 +21,12 @@ console.log('loaded');
 			#viewer {
 			  inset: 0;
 			}
-
+			#screenshot {
+				position: absolute;
+				margin-top:100px;
+			}
 			#models {
+			  position: absolute;
 			  left: 1em;
 			  top: 1em;
 			  z-index: 1;
@@ -30,7 +34,7 @@ console.log('loaded');
 		</style>
 	</head>
 	<body>
-		<button type="button" class="btn btn-default">Take a Screenshot!</button>
+		<button type="button" class="btn btn-default" id="screenshot">Take a Screenshot!</button>
 		<div id="viewer"></div>
 		<select id="models"></select>
 	</body>
